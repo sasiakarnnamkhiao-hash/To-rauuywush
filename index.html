@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ta Ray - Service & Consignment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mitr: ['Mitr', 'sans-serif'],
+                        fredoka: ['Fredoka', 'sans-serif'],
+                    },
+                    colors: {
+                        'game-blue': '#001A3D',
+                        'game-black': '#000510',
+                        'neon-gold': '#D4AF37',
+                        'neon-blue': '#0044FF',
+                        'neon-dark-blue': '#000C24',
+                        'accent-soft': '#A5B4FC'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000510;
+            background: linear-gradient(135deg, #000C24 0%, #000510 100%);
+            margin: 0;
+            padding: 15px;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .game-card {
+            background-color: #000510;
+            background: linear-gradient(180deg, #001A3D 0%, #000510 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+            height: 100%;
+        }
+
+        .text-3d-title {
+            color: #FFFFFF;
+            text-shadow: 2px 2px 0px #0044FF, 4px 4px 0px #000C24;
+            letter-spacing: 1px;
+        }
+
+        .text-3d-subtitle {
+            color: #A5B4FC;
+            text-shadow: 2px 2px 0px #001A3D;
+        }
+        
+        .text-3d-header {
+            color: #FFFFFF;
+            text-shadow: 2px 2px 0px #0044FF;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 12px;
+            margin-bottom: 6px;
+            font-family: 'Mitr', sans-serif;
+            font-weight: 400;
+            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.3);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000510; }
+        ::-webkit-scrollbar-thumb { background: #0044FF; border-radius: 4px; }
+
+        .star {
+            position: absolute;
+            fill: currentColor;
+            opacity: 0.5;
+            animation: twinkle 2s infinite alternate;
+            z-index: 0;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.1; transform: scale(0.8); }
+            100% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .float-anim { animation: floating 4s ease-in-out infinite; }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-mitr text-white antialiased">
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 relative z-10">
+
+        <div class="game-card rounded-2xl p-8 flex flex-col justify-center items-center text-center border border-neon-blue/30">
+            <div class="w-full mb-4 rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                <img src="banner.jpg" alt="Ta Ray Banner" class="w-full h-auto object-cover min-h-[100px] bg-gray-800">
+            </div>
+            
+            <h1 class="font-fredoka text-6xl text-3d-title leading-tight mb-2 z-10">TA RAY</h1>
+            <h2 class="font-mitr text-sm text-accent-soft mb-4 z-10 tracking-widest">ร้าน Ta Ray รับฝากขาย & หาไอดี</h2>
+            
+            <div class="z-10 bg-game-black/80 p-4 rounded-xl border border-neon-blue/50 w-full shadow-[4px_4px_0_#0044FF]">
+                <p class="text-xs leading-relaxed text-gray-300">
+                    รับทำป้ายฝากขาย ป้ายเรทต่างๆ ป้ายคิวอาร์ ปกเครดิต<br>
+                    <span class="text-white font-bold text-base mt-1 block italic underline">" ป้ายไอดียังไม่รับทำและรับหาไอดี "</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="game-card rounded-2xl p-6 border border-neon-blue/30 flex flex-col justify-center relative">
+            <div class="flex flex-col items-center mb-4 z-10">
+                <h2 class="font-fredoka text-3xl text-3d-header text-center">SERVICES</h2>
+            </div>
+
+            <div class="z-10 text-sm space-y-3 bg-black/40 p-5 rounded-xl border border-white/5">
+                <ul class="list-none space-y-3 text-gray-200">
+                    <li class="flex items-center"><span class="w-2 h-2 bg-neon-blue rounded-full mr-3 shadow-[0_0_8px_#0044FF]"></span> รับฝากขายไอดีเกม</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-white rounded-full mr-3"></span> รับทำป้ายเรท / ป้ายฝากขาย</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-neon-blue rounded-full mr-3 shadow-[0_0_8px_#0044FF]"></span> รับทำป้ายคิวอาร์ & ปกเครดิต</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-white rounded-full mr-3"></span> บริการรับหาไอดีตามสั่ง</li>
+                </ul>
+                <p class="mt-4 text-accent-soft text-[11px] text-center border-t border-white/10 pt-3 italic">ออกแบบสวยงาม ใส่ใจทุกรายละเอียด</p>
+            </div>
+        </div>
+
+        <div class="game-card rounded-2xl p-6 border border-neon-blue/30">
+            <h2 class="font-fredoka text-2xl text-3d-header mb-4 text-center">CONSIGNMENT RATES</h2>
+            <div class="mb-4">
+                <img src="att.qinRJRdZk5uRPfzTV5LLWtC3_BvNc47dYtI2am68Mtc.jpeg" alt="เรทราคาฝากขาย" class="w-full rounded-lg border border-white/10 mb-2">
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-[10px]">
+                <div class="space-y-1">
+                    <div class="score-row"><span>500-900</span><span class="text-neon-blue">15B</span></div>
+                    <div class="score-row"><span>1000-1499</span><span class="text-neon-blue">25B</span></div>
+                    <div class="score-row"><span>2500-4499</span><span class="text-neon-blue">57B</span></div>
+                </div>
+                <div class="space-y-1">
+                    <div class="score-row"><span>10,000+</span><span class="text-accent-soft">1.9%</span></div>
+                    <div class="score-row"><span>30,000+</span><span class="text-accent-soft">4.5%</span></div>
+                    <div class="score-row"><span>100,000</span><span class="text-accent-soft">5.5%</span></div>
+                </div>
+            </div>
+            <p class="text-[9px] text-center mt-2 text-gray-400">* คนที่พึ่งใช้บริการจ่ายก่อนทุกกรณี</p>
+        </div>
+
+        <div class="game-card rounded-2xl p-6 border border-neon-blue/30">
+            <h2 class="font-fredoka text-2xl text-3d-header mb-4 text-center">FINDING ID RATES</h2>
+            <div class="mb-4">
+                <img src="IMG_0154.jpeg" alt="เรทราคาหาไอดี" class="w-full rounded-lg border border-white/10 mb-2">
+            </div>
+            <div class="space-y-1 text-[11px]">
+                <div class="score-row"><span>1-900</span><span class="font-bold">40B</span></div>
+                <div class="score-row"><span>1901-3500</span><span class="font-bold">75B</span></div>
+                <div class="score-row"><span>10,000+++</span><span class="font-bold">170B</span></div>
+                <div class="score-row"><span>100,000+++</span><span class="font-bold">300B</span></div>
+            </div>
+        </div>
+
+        <div class="game-card rounded-2xl p-6 border border-neon-blue/30 md:col-span-2">
+            <h2 class="font-fredoka text-2xl text-3d-header mb-4 uppercase text-center">รายละเอียดการฝากขาย</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-black/40 p-5 rounded-xl border border-white/5">
+                    <h3 class="font-mitr text-neon-blue font-bold mb-3">📸 สิ่งที่ต้องเตรียม (รูปภาพ)</h3>
+                    <ul class="text-xs text-gray-300 space-y-2">
+                        <li>• รูปสกิน / เครื่องประดับ</li>
+                        <li>• รูปสัตว์เลี้ยง / ของในคลัง</li>
+                        <li>• รูปยอดเติมเงิน / แรงค์ปัจจุบัน</li>
+                    </ul>
+                </div>
+                <div class="bg-black/40 p-5 rounded-xl border border-white/5 flex flex-col justify-center">
+                    <p class="text-sm text-center mb-4">หากเตรียมรูปครบแล้ว สามารถแจ้งขอ <br><span class="text-neon-blue font-bold">"แบบฟอร์มฝากขาย"</span> ได้ทางแชท</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1-kKlNjdrTLPbQ0ogYQt7Fb-QtCoLyMmX0H57NfEOMwA/edit?usp=drivesdk" target="_blank" class="bg-neon-blue text-center py-2 rounded-full font-bold hover:bg-blue-600 transition shadow-lg">เช็คคิวงานที่นี่</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card rounded-2xl p-6 border border-neon-blue/30">
+             <h2 class="font-fredoka text-2xl text-3d-header mb-4 uppercase text-center">Rules & Order</h2>
+             <div class="bg-game-black/60 rounded-lg p-4 text-xs space-y-4">
+                <div>
+                    <h3 class="text-accent-soft font-bold mb-2">ขั้นตอนการสั่ง</h3>
+                    <p class="text-gray-400">1. ส่งรายละเอียดร้าน/โลโก้ลง Drive</p>
+                    <p class="text-gray-400">2. ชำระค่าบริการตามเรท</p>
+                    <p class="text-gray-400">3. รอรับลิงก์งาน (ปกติไม่เกิน 4 ชม.)</p>
+                </div>
+                <div class="pt-2 border-t border-white/5">
+                    <h3 class="text-red-400 font-bold mb-1">กฎการแก้ไข</h3>
+                    <p class="text-gray-400">• แก้ข้อมูลฟรี 1 ครั้งหลังส่งตรวจสอบ</p>
+                    <p class="text-gray-400">• เปลี่ยนรูปภายหลัง จุดละ 29.-</p>
+                </div>
+             </div>
+        </div>
+
+        <div class="game-card rounded-2xl p-6 border border-neon-blue/30 flex flex-col justify-center">
+            <h2 class="font-fredoka text-2xl text-3d-header mb-4 uppercase text-center">Portfolio</h2>
+            <div class="space-y-3">
+                <div class="bg-black/40 p-4 rounded-xl border-l-4 border-neon-blue">
+                    <h3 class="text-white font-bold text-sm">ดูตัวอย่างงานที่ผ่านมา</h3>
+                    <p class="text-[10px] text-gray-400 mt-1">รวบรวมธีมต่าง ๆ ทั้ง Dark, Bright, Pastel</p>
+                    <button onclick="openModal('dark')" class="mt-3 w-full bg-white/5 hover:bg-white/10 py-2 rounded-lg text-xs transition border border-white/10">เปิดดูคลังผลงาน</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card rounded-2xl p-8 border border-neon-blue/30 md:col-span-2 flex flex-col items-center text-center">
+            <h2 class="font-fredoka text-5xl text-3d-title mb-2 uppercase">Thank You</h2>
+            <p class="text-accent-soft text-xs mb-8 tracking-widest">ยินดีให้บริการทุกท่านจากใจร้าน Ta Ray</p>
+            
+            <div class="flex space-x-6">
+                <a href="https://www.facebook.com/share/1HXq3wncat/?mibextid=wwXIfr" target="_blank" class="group flex flex-col items-center">
+                    <div class="w-14 h-14 bg-game-black border-2 border-neon-blue rounded-2xl flex items-center justify-center text-neon-blue group-hover:bg-neon-blue group-hover:text-white transition-all shadow-[4px_4px_0_#0044FF]">
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                    </div>
+                    <span class="text-[10px] mt-2 text-gray-400">FACEBOOK</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="portfolioModal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-game-black border-2 border-neon-blue rounded-2xl p-6 relative w-full max-w-md shadow-[0_0_30px_rgba(0,68,255,0.3)]">
+            <button onclick="closeModal()" class="absolute -top-3 -right-3 bg-white text-black w-8 h-8 rounded-full font-bold">X</button>
+            <h3 id="modalTitle" class="font-fredoka text-2xl text-white mb-6 text-center">PORTFOLIO</h3>
+            <div id="modalContent" class="space-y-3 max-h-[60vh] overflow-y-auto pr-2">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // Star Generator
+        document.querySelectorAll('.game-card').forEach(card => {
+            for(let i=0; i<15; i++) {
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('class', 'star');
+                svg.setAttribute('viewBox', '0 0 24 24');
+                const size = Math.random() * 6 + 2; 
+                svg.style.width = `${size}px`;
+                svg.style.top = `${Math.random() * 90}%`;
+                svg.style.left = `${Math.random() * 90}%`;
+                svg.style.color = Math.random() > 0.5 ? '#0044FF' : '#FFFFFF';
+                svg.style.animationDelay = `${Math.random() * 2}s`;
+                svg.innerHTML = '<circle cx="12" cy="12" r="10" />';
+                card.appendChild(svg);
+            }
+        });
+
+        const modal = document.getElementById('portfolioModal');
+        function openModal(cat) {
+            const content = document.getElementById('modalContent');
+            content.innerHTML = '<p class="text-center text-gray-400 text-xs">กำลังโหลดตัวอย่างงาน...</p>';
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+    </script>
+</body>
+</html>
